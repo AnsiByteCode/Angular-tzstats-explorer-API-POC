@@ -1,0 +1,12 @@
+1. Download nodejs from https://nodejs.org/en/download/
+2. Install nodejs as an administrator.
+3. Open command promt and set application folder path. 
+    > Change the directory using CD command
+    > The current directory would expect the source folder
+4. Install angular cli using command $ 'npm i -g @angular/cli latest'
+5. To execute the application use $ 'ng serve --o' command (This command will run the application by opening a default browser)
+
+Refernce Video Link : https://www.screencast.com/t/PIZQ7p4L6QKZ
+
+
+Please write us hetal.mehta@ansibytecode.com if you face any difficulty. 

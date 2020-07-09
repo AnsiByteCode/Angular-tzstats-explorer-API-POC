@@ -1,0 +1,32 @@
+<table>
+    <thead>
+        <tr class="align">
+            <th>Type</th>
+            <th>Date</th>
+            <th>Sender</th>
+            <th>Receiver</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let row of gridOptions.data ;let i=index">
+
+            <td *ngFor="let col of gridOptions.colDefs">
+                <ng-template #withoutCellTemplate>
+                    <button *ngIf="i==1" class="sent"> Sent</button>
+                    <button *ngIf="i==2" class="pending"> Pending...</button>
+                    <button *ngIf="i==3" class="received"> Received</button>
+                    <button *ngIf="i==4" class="Reward"> Reward</button>
+                    <button *ngIf="i==0 || i > 4"> Transaction</button>
+                </ng-template>
+
+                <ng-template #withCellTemplate>
+                    <div [innerHTML]="col.cellFn(row) | safeHtml "></div>
+                </ng-template>
+
+                <ng-container *ngTemplateOutlet="col.cellFn ? withCellTemplate : withoutCellTemplate ">
+                </ng-container>
+            </td>
+
+        </tr>
+    </tbody>
+</table>

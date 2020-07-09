@@ -1,0 +1,14 @@
+<div class="font">
+    <i class="fa fa-history "></i> Recent transection
+</div>
+<br>
+
+<head>
+    <link rel="stylesheet " href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css ">
+</head>
+
+<cdk-virtual-scroll-viewport style="height: 390px" itemSize="10" (scroll)="onScrollDown()">
+    <router-outlet>
+        <app-data-table [gridOptions]=" gridOptions "></app-data-table>
+    </router-outlet>
+</cdk-virtual-scroll-viewport>

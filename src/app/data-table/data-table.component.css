@@ -1,0 +1,98 @@
+table th,
+table td {
+    border: 0px solid #000;
+    padding: 10px;
+    padding-right: 100px;
+}
+
+table {
+    border-color: white;
+    table-layout: fixed;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    font-size: 1rem;
+    font-weight: 400;
+    font-size: 15px;
+    border-collapse: collapse;
+}
+
+.align {
+    text-align: left;
+    background-color: lightgray!important;
+}
+
+button {
+    background-color: turquoise;
+    border-style: hidden;
+    border-radius: 12px;
+    cursor: pointer;
+    padding: 5px;
+}
+
+.sent {
+    background-color: lightblue;
+}
+
+.pending {
+    background-color: white;
+    font: black;
+    border: 1px solid black;
+}
+
+.Reward {
+    background-color: yellow;
+}
+
+.received {
+    background-color: palegreen;
+}
+
+tr:nth-child(even) {
+    background-color: #ECECEC;
+}
+
+tr:nth-child(odd) {
+    background-color: #F3F3FF;
+}
+
+
+/* Fixed Headers */
+
+th {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+    z-index: 2;
+}
+
+th[scope=row] {
+    position: -webkit-sticky;
+    position: sticky;
+    left: 0;
+    z-index: 1;
+}
+
+th[scope=row] {
+    vertical-align: top;
+    color: inherit;
+    background-color: inherit;
+    background: linear-gradient(90deg, transparent 0%, transparent calc(100% - .05em), #d6d6d6 calc(100% - .05em), #d6d6d6 100%);
+}
+
+table:nth-of-type(2) th:not([scope=row]):first-child {
+    left: 0;
+    z-index: 3;
+    background: linear-gradient(90deg, #666 0%, #666 calc(100% - .05em), #ccc calc(100% - .05em), #ccc 100%);
+}
+
+th {
+    vertical-align: bottom;
+    background-color: #ECECEC;
+    color: black;
+}
+
+
+/* Strictly for making the scrolling happen. */
+
+tr:hover {
+    background-color: #E4E4E8;
+}
