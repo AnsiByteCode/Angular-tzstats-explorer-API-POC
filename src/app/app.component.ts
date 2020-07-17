@@ -12,6 +12,9 @@ import { environment } from "./../environments/environment"
 })
 export class AppComponent {
   title = 'Tezos blockchain - Angular';
+  changeTitle(newTitle) {
+    this.title = newTitle;
+  }
   gridOptions: any = [];
   
   array = [];
@@ -21,7 +24,7 @@ export class AppComponent {
   constructor(private http: HttpClient, public datePipe: DatePipe) {
   }
 
-  ngOnInit() {
+  ngOnInit() {debugger
     let that = this;
     this.gridOptions = {
       colDefs: [
@@ -34,28 +37,36 @@ export class AppComponent {
     }
     this.getData();    
   }
-
+  scrolled = true;
   onScrollDown() {
-    let that = this;
-    setTimeout(function () {
+    if(this.scrolled == true){
+      this.scrolled = false;
+      let that = this;
+      setTimeout(function () {
       const start = that.sum;
       that.sum += 10;
       that.direction = 'down';
       that.getData();
-    }, 1000);
+    }, 300);
+    }
   }
 
   getData() { 
-    this.http.get(environment.APIURL + (this.sum == 10 ? " " : "&cursor.gte=" + this.rowId)).subscribe((res) => {
+    this.http.get(environment.APIURL + (this.sum == 10 ? " " : "&cursor.lte=" + this.rowId)).subscribe((res) => {
       let dataArray = this;
       lodash.forEach(res, function (tag) {
         let temp = { "0": tag[0], "1": tag[1], "2": tag[2], "3": tag[3], "4": tag[4] }
         dataArray.array.push(temp);
       })
+      
       this.rowId = this.array[this.array.length - 1][0]
-      this.gridOptions.data = this.array;
+      this.gridOptions.data = this.array;      
+      this.scrolled = true;
     });
   }
+
+
+  
 
 }
 
